@@ -19,4 +19,9 @@ Route::prefix('teams')->group(function (){
     Route::get('/{id}', 'TeamsController@show');
 
 });
+
+Route::prefix('players')->group(function (){
+    
+    Route::get('//{id}', 'PlayersController@show');
+});
     
