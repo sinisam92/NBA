@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'TeamsController@index');
+
+Route::prefix('teams')->group(function (){
+
+    Route::get('/', 'TeamsController@index');
+    Route::get('/{id}', 'TeamsController@show');
+
 });
+    
