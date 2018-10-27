@@ -13,15 +13,25 @@
 
 Route::get('/', 'TeamsController@index');
 
+Route::prefix('register')->group(function (){
+
+    Route::get('/', 'RegisterController@create');
+    Route::post('/', 'RegisterController@store');
+});
 Route::prefix('teams')->group(function (){
 
     Route::get('/', 'TeamsController@index');
     Route::get('/{id}', 'TeamsController@show');
 
 });
-
 Route::prefix('players')->group(function (){
     
-    Route::get('//{id}', 'PlayersController@show');
+    Route::get('/{id}', 'PlayersController@show');
 });
+
+    Route::prefix('login')->group(function(){
+
+        Route::get('/', 'LoginController@index');
+        Route::post('/', 'LoginController@login');
+    });
     

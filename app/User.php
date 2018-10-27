@@ -15,8 +15,14 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
+    protected $guarded = [
+        'id'
+    ];
+    const VALIDATION_RULES = [
+        'name' => 'required | min:3 | max:50',
+        'email' => 'required | email | max:100',
+        'password' => 'required | min:8 | confirmed'
+        
     ];
 
     /**
