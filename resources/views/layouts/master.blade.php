@@ -9,13 +9,13 @@
 </head>
 <body>
     <main role="main" class="container">
-        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        @include('layouts.partials.header')
-            <div class="row">
-                <div class="col-md-8 blog-main">
-                    @yield('content')
-                </div><!-- /.blog-main -->
-            </div><!-- /.row -->
+        <div class="cover-container">
+            @include('layouts.partials.header')
+                <div class="row">
+                    <div class="col-md-8 blog-main">
+                        @yield('content')
+                    </div><!-- /.blog-main -->
+                </div><!-- /.row -->
             @include('layouts.partials.footer')
         </div>
     </main><!-- /.container -->          

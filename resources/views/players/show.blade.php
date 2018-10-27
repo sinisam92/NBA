@@ -16,3 +16,5 @@
         Current Team: <h2><a href="/teams/{{ $player->team->id }}">{{ $player->team->name }}</a></h2>
           
 </div>
+
+@endsection

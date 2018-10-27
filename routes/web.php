@@ -12,10 +12,11 @@
 */
 
 Route::get('/', 'TeamsController@index');
+Route::get('/logout', 'LoginController@logout');
 
 Route::prefix('register')->group(function (){
 
-    Route::get('/', 'RegisterController@create');
+    Route::get('/', 'RegisterController@create')->name('register');
     Route::post('/', 'RegisterController@store');
 });
 Route::prefix('teams')->group(function (){
@@ -27,11 +28,11 @@ Route::prefix('teams')->group(function (){
 Route::prefix('players')->group(function (){
     
     Route::get('/{id}', 'PlayersController@show');
+
+});
+Route::prefix('login')->group(function (){
+
+    Route::get('/', 'LoginController@index')->name('login');
+    Route::post('/', 'LoginController@login');
 });
 
-    Route::prefix('login')->group(function(){
-
-        Route::get('/', 'LoginController@index');
-        Route::post('/', 'LoginController@login');
-    });
-    

@@ -23,6 +23,30 @@
                 <p><a href="/players/{{$player->id}}">{{$player->first_name}} {{$player->last_name}}</a></p>
                  
             @endforeach
-                
-          
+
+            @if(count($team->comments))
+
+            <h4>Comments</h4>
+            <ul class="list-unstyled">
+                @foreach($team->comments as $comment)
+                    <li>
+                        <p><strong>Author: </strong> {{ $comment->user->name }}</p>
+                        <p> {{ $comment->content }} </p>
+
+                    </li>
+                @endforeach
+            </ul>
+        @endif
+        <h4>Comment on this topic?</h4>
+        <form method="POST" action="/teams/{{ $team->id }}/comments">
+
+            {{ csrf_field() }}
+            <div class="form-group">
+                    <label>Comment</label> 
+                    <textarea type="textarea" class="form-control" id="content" name="content" placeholder="Enter comment"></textarea>
+                    @include('layouts.partials.error-message', ['field' => 'content'])
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>        
 </div>
+@endsection
