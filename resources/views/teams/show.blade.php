@@ -30,14 +30,13 @@
             <ul class="list-unstyled">
                 @foreach($team->comments as $comment)
                     <li>
-                        <p><strong>Author: </strong> {{ $comment->user->name }}</p>
+                        <hr>
                         <p> {{ $comment->content }} </p>
-
                     </li>
                 @endforeach
             </ul>
         @endif
-        <h4>Comment on this topic?</h4>
+        <h4>Comment on this team?</h4>
         <form method="POST" action="/teams/{{ $team->id }}/comments">
 
             {{ csrf_field() }}

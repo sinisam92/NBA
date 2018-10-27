@@ -23,6 +23,10 @@ Route::prefix('teams')->group(function (){
 
     Route::get('/', 'TeamsController@index');
     Route::get('/{id}', 'TeamsController@show');
+    
+    Route::prefix('/{teamId}/comments')->group(function(){
+        Route::post('/', 'CommentsController@store');
+    });
 
 });
 Route::prefix('players')->group(function (){
@@ -35,4 +39,6 @@ Route::prefix('login')->group(function (){
     Route::get('/', 'LoginController@index')->name('login');
     Route::post('/', 'LoginController@login');
 });
+
+
 

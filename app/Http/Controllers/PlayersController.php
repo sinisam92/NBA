@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Team;
+
 use App\Player;
 use Illuminate\Http\Request;
 

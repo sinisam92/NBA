@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Comment;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,9 +16,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $guarded = [
-        'id'
-    ];
+    protected $guarded = ['id'];
     const VALIDATION_RULES = [
         'name' => 'required | min:3 | max:50',
         'email' => 'required | email | max:100',
@@ -33,4 +32,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
