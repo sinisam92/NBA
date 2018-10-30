@@ -11,6 +11,7 @@ class CommentsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('forbidden_words', ['only' => 'store']);
     }
    public function store($teamId)
    {
