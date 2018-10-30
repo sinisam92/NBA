@@ -11,6 +11,11 @@
     <main role="main" class="container">
         <div class="cover-container">
             @include('layouts.partials.header')
+            @if($flash = session('message'))
+                <div class="alert alert-success">
+                    {{ $flash }}
+                </div>
+            @endif
                 <div class="row">
                     <div class="col-md-8 blog-main">
                         @yield('content')

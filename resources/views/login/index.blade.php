@@ -6,6 +6,16 @@
 @endsection
 
 @section('content')
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+    @if (session('warning'))
+        <div class="alert alert-warning">
+            {{ session('warning') }}
+        </div>
+    @endif
 
     <form method="POST" action="/login">
 
@@ -24,6 +34,7 @@
         
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+  
     @if(count($errors->all()))
         @foreach($errors->all() as $error)
             <div class="alert alert-danger">

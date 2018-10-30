@@ -14,6 +14,9 @@
 Route::get('/', 'TeamsController@index');
 Route::get('/logout', 'LoginController@logout');
 
+Route::get('/user/verify/{token}', 'RegisterController@verifyUser');
+
+
 Route::prefix('register')->group(function (){
 
     Route::get('/', 'RegisterController@create')->name('register');
@@ -36,7 +39,7 @@ Route::prefix('players')->group(function (){
 });
 Route::prefix('login')->group(function (){
 
-    Route::get('/', 'LoginController@index')->name('login');
+    Route::get('/', 'LoginController@index');
     Route::post('/', 'LoginController@login');
 });
 

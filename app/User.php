@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Comment;
+use App\VerifyUser;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -35,5 +36,9 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+    public function verifyUser()
+    {
+        return $this->hasOne(VerifyUser::class);
     }
 }
