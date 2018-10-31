@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\News;
 use App\Comment;
 use App\VerifyUser;
 use Illuminate\Notifications\Notifiable;
@@ -40,5 +41,9 @@ class User extends Authenticatable
     public function verifyUser()
     {
         return $this->hasOne(VerifyUser::class);
+    }
+    public function news()
+    {
+        return $this->hasMany(News::class, 'user_id');
     }
 }
