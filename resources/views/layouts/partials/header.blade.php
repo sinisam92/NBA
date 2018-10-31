@@ -2,7 +2,7 @@
     <div class="inner">
       <h3 class="masthead-brand">NBA 2018</h3>
       <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="/">All Teams</a>
+            <a class="nav-link active" href="/news">News</a>
 
         @if(auth()->check())
             Hello, {{ auth()->user()->name }}.
