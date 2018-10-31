@@ -24,7 +24,7 @@ class LoginController extends Controller
         }
         // return redirect('/');
         // $this->guard()->logout();
-        return redirect('/login')->with('message', 'We sent you an activation code. Check your email and click on the link to verify.');
+        return redirect('/login');
 
     }
     public function logout()

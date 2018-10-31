@@ -39,7 +39,7 @@ Route::prefix('players')->group(function (){
 });
 Route::prefix('login')->group(function (){
 
-    Route::get('/', 'LoginController@index');
+    Route::get('/', 'LoginController@index')->name('login');
     Route::post('/', 'LoginController@login');
 });
 
