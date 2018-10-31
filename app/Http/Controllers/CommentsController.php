@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Team;
 use App\Comment;
+use App\Mail\CommentReceived;
+use Illuminate\Support\Facades\Mail;
 
 class CommentsController extends Controller
 {
@@ -26,6 +28,8 @@ class CommentsController extends Controller
 
        //kreiramo komentar
        $team->comments()->create(request()->all());
+
+       Mail::to($team->email)->send(new CommentReceived($team));
 
        return redirect("/teams/{$teamId}");
    }
