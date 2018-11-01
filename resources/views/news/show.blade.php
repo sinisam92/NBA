@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Player Profile
+    News
 @endsection
 
 @section('content')
@@ -10,7 +10,13 @@
         <h3>{{ $singleNews->title }}</h3>
     </h2>
     <p>Written by {{ $singleNews->user->name }}</p>
-    <p>{{ $singleNews->content }}</p>          
+    <h2>{{ $singleNews->team_id }}</h2>  
+    <p>{{ $singleNews->content }}</p> 
+
+    <p>This news referes to teams: </p>
+    @foreach ($singleNews->team as $oneNews)
+        <li>{{$oneNews->name}}</li>
+    @endforeach         
 </div>
 
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Team;
+use App\News;
 
 
 class TeamsController extends Controller
@@ -16,8 +17,9 @@ class TeamsController extends Controller
     }
     public function show($id)
     {
-        $team = Team::findOrFail($id);
+        $team = Team::with('news')->findOrFail($id);
 
         return view('teams.show',['team' => $team]);
     }
+    
 }

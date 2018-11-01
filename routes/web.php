@@ -42,9 +42,14 @@ Route::prefix('login')->group(function (){
     Route::get('/', 'LoginController@index')->name('login');
     Route::post('/', 'LoginController@login');
 });
+Route::prefix('news')->group(function (){
 
-Route::get('/news', 'NewsController@index');
-Route::get('/news/{id}', 'NewsController@show');
+    Route::get('/', 'NewsController@index');
+    Route::get('/{id}', 'NewsController@show');
+    
+});
+
+
 
 
 

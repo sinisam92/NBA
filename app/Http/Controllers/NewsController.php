@@ -10,14 +10,15 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::paginate(15);
+        $news = News::paginate(10);
         return view('news.index', ['news' => $news]);
     }
     public function show($id)
     {
-        $singleNews = News::with('news')->findOrFail($id);
+        $singleNews = News::with('team')->findOrFail($id);
 
         return view('news.show', ['singleNews' => $singleNews]);
     }
+  
    
 }

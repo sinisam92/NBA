@@ -16,6 +16,13 @@
         <h3>{{ $team->email}}</h3>
         <p>{{ $team->address }}</p>
         <p>{{ $team->city }}</p>
+        
+        <h3>News related to this team: </h3>
+       @foreach ($team->news as $singleNews)
+            <li>
+                {{$singleNews->title}}
+            </li>
+       @endforeach
             <h2>ROSTER</h2>
            
         
