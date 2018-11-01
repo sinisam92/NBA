@@ -19,6 +19,7 @@ class TeamsController extends Controller
     {
         $team = Team::with('news')->findOrFail($id);
 
+        $team->news()->sync($request->input('teams'));
         return view('teams.show',['team' => $team]);
     }
     

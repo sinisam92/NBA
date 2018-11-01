@@ -10,6 +10,10 @@ class News extends Model
     protected $fillable = [
         'title', 'content', 'user_id',
     ];
+    const VALIDATION_RULES = [
+        'title' => 'required',
+        'content' => 'required'
+    ];
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');

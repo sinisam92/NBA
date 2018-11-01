@@ -44,6 +44,8 @@ Route::prefix('login')->group(function (){
 });
 Route::prefix('news')->group(function (){
 
+    Route::get('/create', 'NewsController@create');
+    Route::post('/', 'NewsController@store');
     Route::get('/', 'NewsController@index');
     Route::get('/{id}', 'NewsController@show');
     
