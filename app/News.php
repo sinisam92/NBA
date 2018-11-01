@@ -12,7 +12,8 @@ class News extends Model
     ];
     const VALIDATION_RULES = [
         'title' => 'required',
-        'content' => 'required'
+        'content' => 'required',
+        'teams' => 'required | array',
     ];
     public function user()
     {

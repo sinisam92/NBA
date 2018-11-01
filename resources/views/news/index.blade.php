@@ -16,6 +16,7 @@
                 </a>
         </h2>
         <p>Writen by {{ $singleNews->user->name }}</p>
+        <p>Created at: {{ $singleNews->created_at }}</p>
     </div>
     <hr>
 @endforeach

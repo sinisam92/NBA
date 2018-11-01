@@ -11,7 +11,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::paginate(10);
+        $news = News::orderBy('created_at', 'desc')->paginate(10);
         return view('news.index', ['news' => $news]);
     }
     public function show($id)
@@ -22,18 +22,29 @@ class NewsController extends Controller
     }
     public function create()
     {
-        return view('news.create');
+        $teams = Team::all();
+
+        return view('news.create')->with('teams', $teams);
     }
-    public function store($teamId)
+    public function store()
     {
-        $news = Team::findOrFail($teamId);
-        $this->validate(
-            request(),
-            News::VALIDATION_RULES
-        );
+        // $news = Team::findOrFail($teamId);
+        // $this->validate(
+        //     request(),
+        //     News::VALIDATION_RULES
+        // );
 
-        $news->team()->create(request()->all());
+        // $news->team()->create(request()->all());
 
+        $news = new News();
+        $news->title = request('title');
+        $news->content = request('content');
+        $news->user_id = auth()->user()->id;
+        $news->save();
+
+        // $news->tags()->attach(request('tags'));
+        $news->team()->attach(request('teams'));
+        
         session()->flash('message', 'Thank you for publishing article on www.nba.com');
 
         return redirect("/news");

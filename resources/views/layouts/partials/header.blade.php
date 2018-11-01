@@ -3,6 +3,7 @@
       <h3 class="masthead-brand">NBA 2018</h3>
       <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link" href="/">Home Page</a>
+            <a class="nav-link" href="/news/create">Create News</a>
             <a class="nav-link" href="/news">News</a>
 
         @if(auth()->check())

@@ -19,9 +19,14 @@
                 @include('layouts.partials.error-message', ['field' => 'contnet'])
         </div>
         <div class="form-group form-check">
-           
-                <input type="checkbox" class="form-check-input" name="team">
-                <label class="form-check-label">Sacramento KIngs</label>
+                <label>Select team</label><br>
+           @foreach ($teams as $team)
+            
+                <input type="checkbox" class="form-check-input" name="teams[]" value="{{ $team->id}}"> {{ $team->name}}<br>
+                
+
+           @endforeach
+                
          
                 
         </div>
