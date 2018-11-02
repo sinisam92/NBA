@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Team;
-use App\News;
+
+
 
 
 class TeamsController extends Controller
@@ -12,8 +13,10 @@ class TeamsController extends Controller
     public function index()
     {
         $teams = Team::all();
+        // $teams = $team->news()->with('news')->latest()->paginate(10);
 
         return view('teams.index', ['teams' => $teams]);
+        // return view('teams.index')->with('teams', $teams);
     }
     public function show($id)
     {

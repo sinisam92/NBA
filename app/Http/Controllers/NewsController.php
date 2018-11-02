@@ -28,13 +28,7 @@ class NewsController extends Controller
     }
     public function store()
     {
-        // $news = Team::findOrFail($teamId);
-        // $this->validate(
-        //     request(),
-        //     News::VALIDATION_RULES
-        // );
-
-        // $news->team()->create(request()->all());
+        
 
         $news = new News();
         $news->title = request('title');
@@ -42,9 +36,9 @@ class NewsController extends Controller
         $news->user_id = auth()->user()->id;
         $news->save();
 
-        // $news->tags()->attach(request('tags'));
+    
         $news->team()->attach(request('teams'));
-        
+
         session()->flash('message', 'Thank you for publishing article on www.nba.com');
 
         return redirect("/news");

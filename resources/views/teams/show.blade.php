@@ -10,12 +10,12 @@
 <div class="blog-post container">
     <h2 class="blog-post-title">
      <h2><a href="/">All Teams</a></h2>
-            {{ $team->name }}
+           Team: {{ $team->name }}<br>
         </h2>
 
-        <h3>{{ $team->email}}</h3>
-        <p>{{ $team->address }}</p>
-        <p>{{ $team->city }}</p>
+        Team E-mail address: <h3>{{ $team->email}}</h3>
+        Team hometown: <p>{{ $team->city }}</p>
+        Team address: <p>{{ $team->address }}</p>
         
         <h3>News related to this team: </h3>
        @foreach ($team->news as $singleNews)
