@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
-use App\News;
+use App\Team;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,12 +17,12 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        // view()->composer('layouts.master', function($view){
+        view()->composer('layouts.master', function($view){
 
-        //     $news = News::has('teams')->get();
+            $teams = Team::has('news')->get();
 
-        //     $view->with('news', $news);
-        // });
+            $view->with('teams', $teams);
+        });
     }
 
     /**

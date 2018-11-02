@@ -15,7 +15,7 @@
 
     <p>This news referes to teams: </p>
     @foreach ($singleNews->team as $oneNews)
-        <li>{{$oneNews->name}}</li>
+        <li><a href="/teams/{{ $oneNews->id }}">{{$oneNews->name}}</a></li>
     @endforeach         
 </div>
 

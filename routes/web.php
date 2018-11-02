@@ -16,7 +16,6 @@ Route::get('/logout', 'LoginController@logout');
 
 Route::get('/user/verify/{token}', 'RegisterController@verifyUser');
 
-
 Route::prefix('register')->group(function (){
 
     Route::get('/', 'RegisterController@create')->name('register');
@@ -30,13 +29,10 @@ Route::prefix('teams')->group(function (){
     Route::prefix('/{teamId}/comments')->group(function(){
         Route::post('/', 'CommentsController@store');
     });
-
 });
-Route::prefix('players')->group(function (){
     
-    Route::get('/{id}', 'PlayersController@show');
+Route::get('/players/{id}', 'PlayersController@show');
 
-});
 Route::prefix('login')->group(function (){
 
     Route::get('/', 'LoginController@index')->name('login');
@@ -51,7 +47,7 @@ Route::prefix('news')->group(function (){
     
 });
 
-
+Route::get('/news/teams/{team}', 'NewsController@index');
 
 
 
